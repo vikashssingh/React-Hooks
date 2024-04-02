@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
-
+//myName varible ye use hota hai initial value  ke liye
+//setMyName is also variable isko use krte hn value ko update krne ke liye
 function App() {
+  const [myName, setMyName] = useState("vikash singh");
+  //changeName is function
+  const changeName = () => {
+    let val = myName;
+    // if (val === "vikash singh") {
+    //   setMyName("vikash kumar");
+    // }
+    // else {
+    //   setMyName("vikash singh");
+    // }
+
+    //use ternary oprator
+    (val === "vikash singh") ? setMyName("vikash kumar") : setMyName("vikash singh");
+
+  }
+
+  console.log(myName)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="header">
+      <h1>{myName}</h1>
+      <button className="btn" onClick={changeName}>
+        Click Me
+      </button>
     </div>
+
   );
 }
 
